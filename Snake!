@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake! | Acuristic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #bdbdbd;
+      overflow-x: hidden;
+      background: #0b0b0b;
+    }
+
+    /* SAME BACKGROUND */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: #0b0b0b;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 6px,
+        transparent 6px,
+        transparent 26px
+      );
+
+      background-size: 260px 260px;
+      animation: moveGrid 10s linear infinite;
+      opacity: 0.18;
+    }
+
+    @keyframes moveGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 260px 260px; }
+    }
+
+    /* NAV STYLE SAME FEEL */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 28px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav a {
+      color: #bdbdbd;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      color: #4da6ff;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      color: #e6e6e6;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    .tags {
+      margin: 10px 0 25px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      padding: 4px 8px;
+      margin-right: 6px;
+      border-radius: 8px;
+      font-size: 0.75em;
+      color: #cfcfcf;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* MEDIA BOX */
+    .media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+
+      margin-bottom: 25px;
+    }
+
+    .media img,
+    .media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* TEXT */
+    p {
+      color: #a8a8a8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* BUTTON (MATCHES YOUR CARD STYLE) */
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+
+      color: #dcdcdc;
+      text-decoration: none;
+
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      border-color: rgba(77,166,255,0.5);
+      box-shadow: 0 0 0 1px rgba(77,166,255,0.2),
+                  0 10px 25px rgba(77,166,255,0.12);
+      color: #4da6ff;
+      transform: translateY(-3px);
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #9f9f9f;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: #ffffff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong style="color:#e6e6e6;">Acuristic</strong></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <a class="back" href="index.html">← Back</a>
+
+  <h1>Snake!</h1>
+
+  <div class="tags">
+    <span class="tag">Unity</span>
+    <span class="tag">C#</span>
+    <span class="tag">GameJam</span>
+  </div>
+
+  <!-- MEDIA AREA -->
+  <div class="media">
+    <!-- replace with video or image -->
+    <img src="download.jpeg" alt="Project preview">
+  </div>
+
+  <p>
+    A smooth physics-based movement system built for responsive platformer gameplay.
+    Focused on acceleration control, air movement tuning, and tight player feel.
+  </p>
+
+  <p>
+    Designed to feel consistent across different frame rates and input conditions,
+    with emphasis on game feel over raw physics realism.
+  </p>
+
+  <!-- GITHUB BUTTON -->
+  <a class="btn" href="https://acuristic.itch.io/snake" target="_blank">
+    View on Itch.io →
+  </a>
+
+</div>
+
+</body>
+</html>
