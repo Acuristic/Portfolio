@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Acuristic | Game Developer</title>
+  <title>Movement System | Acuristic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -10,12 +10,12 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      color: #d6d6d6;
+      color: #bdbdbd;
       overflow-x: hidden;
       background: #0b0b0b;
     }
 
-    /* ===== BACKGROUND (NO BLOBS) ===== */
+    /* SAME BACKGROUND */
     body::before {
       content: "";
       position: fixed;
@@ -32,7 +32,7 @@
 
       background: repeating-linear-gradient(
         -45deg,
-        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03),
         rgba(255,255,255,0.03) 6px,
         transparent 6px,
         transparent 26px
@@ -40,7 +40,7 @@
 
       background-size: 260px 260px;
       animation: moveGrid 10s linear infinite;
-      opacity: 0.2;
+      opacity: 0.18;
     }
 
     @keyframes moveGrid {
@@ -48,7 +48,7 @@
       100% { background-position: 260px 260px; }
     }
 
-    /* ===== GLASS NAV ===== */
+    /* NAV STYLE SAME FEEL */
     nav {
       display: flex;
       justify-content: space-between;
@@ -59,100 +59,34 @@
 
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
       border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    nav div strong {
-      font-weight: 800;
-      color: #ffffff;
     }
 
     nav a {
       color: #bdbdbd;
-      margin-left: 18px;
       text-decoration: none;
-      font-weight: 500;
+      margin-left: 18px;
     }
 
     nav a:hover {
-      color: white;
+      color: #4da6ff;
     }
 
-    /* ===== HERO ===== */
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-    }
-
-    header h1 {
-      font-size: 3.2em;
-      color: #fff;
-    }
-
-    .subtitle {
-      color: #9a9a9a;
-      margin-top: 10px;
-      font-size: 1.2em;
-    }
-
-    section {
-      max-width: 1100px;
+    /* CONTAINER */
+    .container {
+      max-width: 1000px;
       margin: auto;
       padding: 50px 20px;
     }
 
-    h2 {
-      margin-bottom: 25px;
-      padding-left: 10px;
-      border-left: 4px solid #4da6ff;
+    h1 {
       color: #e6e6e6;
-      font-weight: 700;
-    }
-
-    /* ===== GLASS CARDS ===== */
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .card {
-      flex: 1 1 280px;
-      padding: 20px;
-      border-radius: 16px;
-
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
-      border: 1px solid rgba(255,255,255,0.08);
-
-      text-decoration: none;
-      color: inherit;
-
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 15px 40px rgba(77,166,255,0.15);
-      border-color: rgba(77,166,255,0.4);
-    }
-
-    .card h3 {
+      font-size: 2.8em;
       margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .card p {
-      color: #b5b5b5;
-      font-size: 0.95em;
     }
 
     .tags {
-      margin-top: 12px;
+      margin: 10px 0 25px;
     }
 
     .tag {
@@ -166,73 +100,115 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .about {
-      color: #bdbdbd;
+    /* MEDIA BOX */
+    .media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+
+      margin-bottom: 25px;
+    }
+
+    .media img,
+    .media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* TEXT */
+    p {
+      color: #a8a8a8;
       line-height: 1.6;
-      max-width: 700px;
+      margin-bottom: 20px;
     }
 
-    #contact p {
-      color: #bdbdbd;
+    /* BUTTON (MATCHES YOUR CARD STYLE) */
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+
+      color: #dcdcdc;
+      text-decoration: none;
+
+      transition: 0.25s ease;
     }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #777;
-      font-size: 0.9em;
+    .btn:hover {
+      border-color: rgba(77,166,255,0.5);
+      box-shadow: 0 0 0 1px rgba(77,166,255,0.2),
+                  0 10px 25px rgba(77,166,255,0.12);
+      color: #4da6ff;
+      transform: translateY(-3px);
     }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #9f9f9f;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: #ffffff;
+    }
+
   </style>
 </head>
 
 <body>
 
 <nav>
-  <div><strong>Acuristic</strong></div>
+  <div><strong style="color:#e6e6e6;">Acuristic</strong></div>
   <div>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
   </div>
 </nav>
 
-<header>
-  <h1>Acuristic</h1>
-  <div class="subtitle">Game Developer • Unity • C#</div>
-</header>
+<div class="container">
 
-<section id="projects">
-  <h2>Projects</h2>
+  <a class="back" href="index.html">← Back</a>
 
-  <div class="projects">
-    <a class="card" href="movement-system.html">
-      <h3>Movement System</h3>
-      <p>Smooth physics-based movement with acceleration and control.</p>
-      <div class="tags">
-        <span class="tag">Unity</span>
-        <span class="tag">C#</span>
-      </div>
-    </a>
+  <h1>Movement System</h1>
+
+  <div class="tags">
+    <span class="tag">Unity</span>
+    <span class="tag">C#</span>
+    <span class="tag">Gameplay</span>
   </div>
-</section>
 
-<section id="about">
-  <h2>About</h2>
-  <p class="about">
-    I’m comfortable building gameplay mechanics in Unity using C#, with a strong focus on player feel and responsiveness.
+  <!-- MEDIA AREA -->
+  <div class="media">
+    <!-- replace with video or image -->
+    <img src="download.jpeg" alt="Project preview">
+  </div>
+
+  <p>
+    A smooth physics-based movement system built for responsive platformer gameplay.
+    Focused on acceleration control, air movement tuning, and tight player feel.
   </p>
-</section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: Acuristic@gmail.com</p>
-  <p>GitHub: Acuristic</p>
-</section>
+  <p>
+    Designed to feel consistent across different frame rates and input conditions,
+    with emphasis on game feel over raw physics realism.
+  </p>
 
-<footer>
-  © 2026 Acuristic
-</footer>
+  <!-- GITHUB BUTTON -->
+  <a class="btn" href="https://github.com/yourrepo" target="_blank">
+    View on GitHub →
+  </a>
+
+</div>
 
 </body>
 </html>
