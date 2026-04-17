@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Acuristic | Game Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #d6d6d6;
+      overflow-x: hidden;
+      background: #0b0b0b;
+    }
+
+    /* ===== BACKGROUND (NO BLOBS) ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: #0b0b0b;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,0.03) 0px,   /* ↓ reduced opacity */
+        rgba(255,255,255,0.03) 6px,
+        transparent 6px,
+        transparent 26px
+      );
+
+      background-size: 260px 260px;
+      animation: moveGrid 10s linear infinite;
+      opacity: 0.2; /* ↓ reduced overall visibility */
+    }
+
+    @keyframes moveGrid {
+      0% { background-position: 0 0; }
+      100% { background-position: 260px 260px; }
+    }
+
+    /* ===== GLASS NAV ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 28px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav div strong {
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    nav a {
+      color: #bdbdbd;
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    /* ===== HERO ===== */
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    header h1 {
+      font-size: 3.2em;
+      color: #fff;
+    }
+
+    .subtitle {
+      color: #9a9a9a;
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      padding-left: 10px;
+      border-left: 4px solid #4da6ff;
+      color: #e6e6e6;
+      font-weight: 700;
+    }
+
+    /* ===== GLASS CARDS ===== */
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1 1 280px;
+      padding: 20px;
+      border-radius: 16px;
+
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      text-decoration: none;
+      color: inherit;
+
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(77,166,255,0.15);
+      border-color: rgba(77,166,255,0.4);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .card p {
+      color: #b5b5b5;
+      font-size: 0.95em;
+    }
+
+    /* ===== TAGS ===== */
+    .tags {
+      margin-top: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      padding: 4px 8px;
+      margin-right: 6px;
+      border-radius: 8px;
+      font-size: 0.75em;
+      color: #cfcfcf;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      color: #bdbdbd;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact p {
+      color: #bdbdbd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #777;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>Acuristic</strong></div>
+  <div>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Acuristic</h1>
+  <div class="subtitle">Game Developer • Unity • C#</div>
+</header>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects">
+    <a class="card" href="https://www.google.com" target="_blank">
+      <h3>Movement System</h3>
+      <p>Smooth physics-based movement with acceleration and control.</p>
+      <div class="tags">
+        <span class="tag">Unity</span>
+        <span class="tag">C#</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p class="about">
+    I’m comfortable building gameplay mechanics in Unity using C#, with a strong focus on player feel and responsiveness.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: Acuristic@gmail.com</p>
+  <p>GitHub: Acuristic</p>
+</section>
+
+<footer>
+  © 2026 Acuristic
+</footer>
+
+</body>
+</html>
